@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق نور المؤمن</title>
+    <!-- ربط مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ربط ملف الـ CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيدر الرئيسي -->
+    <header id="main-header">
+        <h1>نور الؤمن</h1>
+        <p>التطبيق الإسلامي المبارك</p>
+    </header>
+
+    </header>
+
+    <!-- شريط الصلاة الجديد (بدون أي تأثير على باقي التطبيق) -->
+    <div class="prayer-banner">
+        <div class="prayer-right">
+            <i class="fa-solid fa-moon"></i>
+            <span id="prayer-time-text">٥:٥٤ م</span>
+        </div>
+        <div class="prayer-left">
+            <span>صلاة المغرب في نجف</span>
+        </div>
+    </div>
+    <main class="container">
+
+        <!-- الشاشة الرئيسية (القائمة الكاملة) -->
+        <div id="home-screen" class="home-grid">
+            <div class="menu-card" onclick="openSection('duaa')">
+                <i class="fa-solid fa-book-quran"></i>
+                <h3>الأدعية والزيارات</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('counter')">
+                <i class="fa-solid fa-calculator"></i>
+                <h3>المسبحة الإلكترونية</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('quran')">
+                <i class="fa-solid fa-book"></i>
+                <h3>القرآن الكريم</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('azkar')">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h3>الأذكار اليومية</h3>
+            </div>
+        </div>
+
+        <!-- شاشة المسبحة الإلكترونية -->
+        <section id="counter-section" class="sub-screen" style="display: none;">
+            <div class="sub-header">
+                <h2>المسبحة الإلكترونية</h2>
+                <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-right"></i> رجوع</button>
+            </div>
+            <div class="counter-body">
+                <div id="counter-number">0</div>
+                <div class="counter-buttons">
+                    <button class="btn-count" onclick="incrementCounter()">تسبيح</button>
+                    <button class="btn-reset" onclick="resetCounter()">تصفير</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- شاشة الأدعية والزيارات -->
+        <section id="duaa-section" class="sub-screen" style="display: none;">
+            <div class="sub-header">
+                <h2>الأدعية والزيارات المباركة</h2>
+                <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-right"></i> رجوع</button>
+            </div>
+            
+            <!-- قائمة الأدعية -->
+            <div class="duaa-body" id="duaa-list">
+                <div class="list-container">
+                    <div class="list-item" onclick="loadTextContent('دعاء كميل', 'kamyl')">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div class="item-info">
+                            <h4>دعاء كميل بن زياد</h4>
+                            <p>يُقرأ ليلة الجمعة وفي كل ليلة نصف من شعبان</p>
+                        </div>
+                    </div>
+                    <div class="list-item" onclick="loadTextContent('دعاء التوسل', 'tawasul')">
+                        <i class="fa-solid fa-hands-batch"></i>
+                        <div class="item-info">
+                            <h4>دعاء التوسل</h4>
+                            <p>التوسل بالنبي وأهل بيته الأطهار عليهم السلام</p>
+                        </div>
+                    </div>
+                    <div class="list-item" onclick="loadTextContent('زيارة عاشوراء', 'ashura')">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <div class="item-info">
+                            <h4>زيارة عاشوراء</h4>
+                            <p>زيارة الإمام الحسين عليه السلام في يوم عاشوراء وغيره</p>
+                        </div>
+                    </div>
+                    <div class="list-item" onclick="loadTextContent('دعاء الندبة', 'nudba')">
+                        <i class="fa-solid fa-sun"></i>
+                        <div class="item-info">
+                            <h4>دعاء الندبة</h4>
+                            <p>يُقرأ في صباح يوم الجمعة الشريفة</p>
+                        </div>
+                    </div>
+                    <div class="list-item" onclick="loadTextContent('دعاء الصباح', 'sabah')">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                        <div class="item-info">
+                            <h4>دعاء الصباح لأمير المؤمنين</h4>
+                            <p>مناجاة مباركة لبداية كل يوم</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- شاشة عرض نص الدعاء بالتفصيل -->
+            <div class="detail-container" id="duaa-detail" style="display: none;">
+                <div class="detail-top-bar">
+                    <button class="back-btn" onclick="backToDuaaList()"><i class="fa-solid fa-arrow-right"></i> القائمة</button>
+                    <h3 id="detail-title">عنوان الدعاء</h3>
+                </div>
+                <div class="duaa-text-box">
+                    <p id="detail-text">جاري تحميل النص...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- شاشة القرآن الكريم -->
+        <section id="quran-section" class="sub-screen" style="display: none;">
+            <div class="sub-header">
+                <h2>القرآن الكريم</h2>
+                <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-right"></i> رجوع</button>
+            </div>
+            
+            <div class="duaa-body" id="quran-list">
+                <div class="list-container" id="surahs-container">
+                    <div class="list-item">
+                        <div class="item-info">
+                            <h4>جاري تحميل قائمة السور...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-container" id="quran-detail" style="display: none;">
+                <div class="detail-top-bar">
+                    <button class="back-btn" onclick="backToQuranList()"><i class="fa-solid fa-arrow-right"></i> القائمة</button>
+                    <h3 id="quran-detail-title">اسم السورة</h3>
+                </div>
+                <div class="duaa-text-box">
+                    <p id="quran-detail-text" style="line-height: 2.2; font-size: 1.2rem; text-align: justify;">جاري تحميل الآيات...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- شاشة الأذكار اليومية -->
+        <section id="azkar-section" class="sub-screen" style="display: none;">
+            <div class="sub-header">
+                <h2>الأذكار اليومية</h2>
+                <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-right"></i> رجوع</button>
+            </div>
+            
+            <div class="duaa-body" id="azkar-list">
+                <div class="list-container">
+                    <div class="list-item" onclick="loadAzkarContent('أذكار الصباح', 'morning')">
+                        <i class="fa-solid fa-sun"></i>
+                        <div class="item-info">
+                            <h4>أذكار الصباح</h4>
+                            <p>حصن المسلم في بداية النهار</p>
+                        </div>
+                    </div>
+                    <div class="list-item" onclick="loadAzkarContent('أذكار المساء', 'evening')">
+                        <i class="fa-solid fa-moon"></i>
+                        <div class="item-info">
+                            <h4>أذكار المساء</h4>
+                            <p>الحفظ والأمان في أطراف النهار</p>
+                        </div>
+                    </div>
+                    <div class="list-item" onclick="loadAzkarContent('أذكار النوم والاستيقاظ', 'sleep')">
+                        <i class="fa-solid fa-bed"></i>
+                        <div class="item-info">
+                            <h4>أذكار النوم</h4>
+                            <p>ما يُقَال عند الخلود إلى النوم والاستيقاظ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-container" id="azkar-detail" style="display: none;">
+                <div class="detail-top-bar">
+                    <button class="back-btn" onclick="backToAzkarList()"><i class="fa-solid fa-arrow-right"></i> القائمة</button>
+                    <h3 id="azkar-detail-title">عنوان الذكر</h3>
+                </div>
+                <div class="duaa-text-box">
+                    <p id="azkar-detail-text" style="line-height: 2.2; font-size: 1.2rem; text-align: justify;">جاري تحميل الأذكار...</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ربط ملف الـ JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

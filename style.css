@@ -1,0 +1,277 @@
+/* تنسيق عام لصفحة التطبيق */
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    color: #38bdf8;
+    margin: 0 0 5px 0;
+}
+
+header p {
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* شريط أوقات الصلاة */
+.prayer-banner {
+    background-color: #223447;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.prayer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    direction: ltr;
+    color: #f8fafc;
+}
+
+.prayer-right i {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+}
+
+.prayer-left {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+}
+
+/* حاوية الشاشات الرئيسية والفرعية */
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.menu-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-card:hover {
+    background-color: #334155;
+}
+
+.menu-card i {
+    font-size: 2rem;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.menu-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #f8fafc;
+}
+
+/* الشاشات الفرعية */
+.sub-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e293b;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.sub-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #38bdf8;
+}
+
+.back-btn {
+    background-color: #334155;
+    color: #f8fafc;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}
+
+.back-btn:hover {
+    background-color: #475569;
+}
+
+/* القوائم داخل الأقسام */
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.list-item {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.list-item:hover {
+    background-color: #334155;
+}
+
+.list-item i {
+    font-size: 1.5rem;
+    color: #38bdf8;
+}
+
+.item-info h4 {
+    margin: 0 0 5px 0;
+    color: #f8fafc;
+    font-size: 1.05rem;
+}
+
+.item-info p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* تنسيق شاشات التفاصيل (الأدعية، الأذكار، القرآن) لتكون تحت العنوان وبعرض الشاشة */
+#duaa-detail, #azkar-detail, #quran-detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.duaa-detail-header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e293b;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.duaa-detail-header h3 {
+    color: #38bdf8;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* صندوق عرض النص العريض والمريح */
+.duaa-text-box {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 450px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.duaa-text-box p {
+    color: #f8fafc;
+    font-size: 1.15rem;
+    line-height: 2.4;
+    text-align: right;
+    margin: 0;
+    white-space: pre-wrap;
+    direction: rtl;
+}
+
+/* قسم المسبحة */
+.counter-body {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#counter-number {
+    font-size: 4rem;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+.counter-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-count {
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}
+
+.btn-reset {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}
